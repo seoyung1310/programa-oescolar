@@ -3,209 +3,799 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Escola Virtual - Cursos de Programação</title>
+    <title>Coelho Code - Cursos de Programação</title>
     <style>
         * {
             margin: 0;
             padding: 0;
             box-sizing: border-box;
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            font-family: 'Poppins', 'Segoe UI', sans-serif;
         }
 
         body {
-            background: #f0faf5;
-            color: #14342b;
+            background: #eef6ff;
+            color: #1a2b4a;
             line-height: 1.6;
+            overflow-x: hidden;
         }
 
-        /* Cabeçalho */
+        /* ===== HEADER ===== */
         header {
-            background: linear-gradient(135deg, #0d5c46, #14a37f);
-            color: white;
-            padding: 2rem 1rem;
-            text-align: center;
-            box-shadow: 0 4px 12px rgba(13, 92, 70, 0.2);
-        }
-
-        header h1 {
-            font-size: 2.5rem;
-            margin-bottom: 0.5rem;
-            text-shadow: 0 2px 6px rgba(0, 0, 0, 0.2);
-        }
-
-        header p {
-            font-size: 1.2rem;
-            opacity: 0.95;
-        }
-
-        /* Navegação */
-        nav {
-            background: #0a4735;
+            background: #ffffff;
+            padding: 1.2rem 2.5rem;
             display: flex;
-            justify-content: center;
-            flex-wrap: wrap;
-            padding: 0.8rem;
-            gap: 1.5rem;
-            box-shadow: 0 2px 6px rgba(0, 0, 0, 0.15);
-        }
-
-        nav a {
-            color: #d4f5e8;
-            text-decoration: none;
-            font-weight: 500;
-            padding: 0.4rem 0.8rem;
-            border-radius: 20px;
-            transition: background 0.3s, color 0.3s;
-        }
-
-        nav a:hover {
-            background: #14a37f;
-            color: white;
-        }
-
-        /* Container principal */
-        .container {
-            max-width: 1200px;
-            margin: 2rem auto;
-            padding: 0 1.5rem;
-        }
-
-        /* Seções */
-        section {
-            background: white;
-            border-radius: 16px;
-            padding: 2rem;
-            margin-bottom: 2rem;
-            box-shadow: 0 6px 18px rgba(13, 92, 70, 0.08);
-            transition: transform 0.2s;
-            border-top: 4px solid #14a37f;
-        }
-
-        section:hover {
-            transform: translateY(-3px);
-        }
-
-        h2 {
-            color: #0d5c46;
-            font-size: 1.8rem;
-            margin-bottom: 1.2rem;
-            border-left: 6px solid #14a37f;
-            padding-left: 1rem;
-        }
-
-        h3 {
-            color: #0a4735;
-            margin: 1rem 0 0.5rem;
-        }
-
-        /* Grid de cursos */
-        .cursos-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-            gap: 1.5rem;
-            margin-top: 1.5rem;
-        }
-
-        .curso-card {
-            background: #f5fdf9;
-            border: 1px solid #c9ecdc;
-            border-radius: 12px;
-            padding: 1.5rem;
-            transition: box-shadow 0.3s, border-color 0.3s, background 0.3s;
-            display: flex;
-            flex-direction: column;
-        }
-
-        .curso-card:hover {
-            box-shadow: 0 8px 20px rgba(20, 163, 127, 0.2);
-            border-color: #14a37f;
-            background: #ecfbf4;
-        }
-
-        .curso-card h4 {
-            color: #0d5c46;
-            font-size: 1.2rem;
-            margin-bottom: 0.5rem;
-        }
-
-        .curso-card p {
-            font-size: 0.95rem;
-            color: #2e4a3f;
-            flex: 1;
-        }
-
-        .badge {
-            display: inline-block;
-            background: #d4f5e8;
-            color: #0a4735;
-            font-size: 0.8rem;
-            font-weight: 600;
-            padding: 0.25rem 0.75rem;
-            border-radius: 20px;
-            margin-top: 0.8rem;
-            align-self: flex-start;
-        }
-
-        /* Destaque Python */
-        .python-destaque {
-            background: linear-gradient(135deg, #e8fff6, #d1f7e6);
-            border-left: 6px solid #14a37f;
-            border-top: 4px solid #14a37f;
-        }
-
-        .python-destaque h2 {
-            border-left-color: #0d5c46;
-        }
-
-        .python-info {
-            display: flex;
-            flex-wrap: wrap;
-            gap: 2rem;
+            justify-content: space-between;
             align-items: center;
+            box-shadow: 0 4px 20px rgba(65, 130, 220, 0.12);
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            flex-wrap: wrap;
+            gap: 1rem;
+            border-bottom: 3px solid #cfe3ff;
         }
 
-        .python-texto {
-            flex: 2;
-            min-width: 250px;
+        .logo {
+            font-size: 1.6rem;
+            font-weight: 800;
+            color: #1a4d8f;
+            display: flex;
+            align-items: center;
+            gap: 0.6rem;
         }
 
-        .python-icone {
-            flex: 1;
-            font-size: 5rem;
-            text-align: center;
+        /* Coelhinho do logo em CSS */
+        .coelho-logo {
+            position: relative;
+            width: 40px;
+            height: 40px;
+            background: #6ca8f0;
+            border-radius: 50% 50% 45% 45%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .coelho-logo::before,
+        .coelho-logo::after {
+            content: '';
+            position: absolute;
+            top: -14px;
+            width: 8px;
+            height: 20px;
+            background: #6ca8f0;
+            border-radius: 50% 50% 0 0;
+        }
+
+        .coelho-logo::before { left: 8px; transform: rotate(-12deg); }
+        .coelho-logo::after { right: 8px; transform: rotate(12deg); }
+
+        .coelho-logo .olhos {
+            display: flex;
+            gap: 6px;
+            position: relative;
+            z-index: 2;
+        }
+
+        .coelho-logo .olhos span {
+            width: 5px;
+            height: 5px;
+            background: #1a2b4a;
+            border-radius: 50%;
+        }
+
+        header nav {
+            display: flex;
+            gap: 1.8rem;
+            flex-wrap: wrap;
+        }
+
+        header nav a {
+            color: #35507a;
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 0.95rem;
+            padding: 0.4rem 0;
+            position: relative;
+            transition: color 0.2s;
+        }
+
+        header nav a:hover {
+            color: #2a7de1;
+        }
+
+        header nav a::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 0;
+            height: 3px;
+            background: #6ca8f0;
+            border-radius: 3px;
+            transition: width 0.3s;
+        }
+
+        header nav a:hover::after {
+            width: 100%;
+        }
+
+        /* ===== HERO ===== */
+        .hero {
+            position: relative;
+            padding: 5rem 2rem;
+            background: linear-gradient(180deg, #dbeafe 0%, #eef6ff 100%);
+            overflow: hidden;
+        }
+
+        /* Nuvens decorativas */
+        .nuvem {
+            position: absolute;
+            background: white;
+            border-radius: 50%;
+            opacity: 0.7;
+            filter: blur(1px);
+        }
+
+        .nuvem::before,
+        .nuvem::after {
+            content: '';
+            position: absolute;
+            background: white;
+            border-radius: 50%;
+        }
+
+        .nuvem-1 {
+            width: 80px; height: 40px;
+            top: 60px; left: 8%;
+            animation: flutuarNuvem 8s ease-in-out infinite;
+        }
+        .nuvem-1::before { width: 45px; height: 45px; top: -20px; left: 8px; }
+        .nuvem-1::after { width: 35px; height: 35px; top: -12px; right: 8px; }
+
+        .nuvem-2 {
+            width: 100px; height: 50px;
+            top: 150px; right: 12%;
+            animation: flutuarNuvem 10s ease-in-out infinite reverse;
+        }
+        .nuvem-2::before { width: 55px; height: 55px; top: -25px; left: 12px; }
+        .nuvem-2::after { width: 40px; height: 40px; top: -15px; right: 10px; }
+
+        @keyframes flutuarNuvem {
+            0%, 100% { transform: translateX(0); }
+            50% { transform: translateX(20px); }
+        }
+
+        .hero-conteudo {
+            max-width: 1100px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: 1.2fr 1fr;
+            gap: 3rem;
+            align-items: center;
+            position: relative;
+            z-index: 2;
+        }
+
+        .hero-texto .tag {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            background: white;
+            color: #2a7de1;
+            padding: 0.4rem 1rem;
+            border-radius: 50px;
+            font-size: 0.8rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            margin-bottom: 1.5rem;
+            box-shadow: 0 4px 12px rgba(65, 130, 220, 0.15);
+        }
+
+        .hero-texto h1 {
+            font-size: 3.2rem;
+            font-weight: 800;
+            line-height: 1.1;
+            color: #1a2b4a;
+            margin-bottom: 1.2rem;
+        }
+
+        .hero-texto h1 .azul {
+            color: #2a7de1;
+            position: relative;
+        }
+
+        .hero-texto h1 .azul::after {
+            content: '🐰';
+            position: absolute;
+            font-size: 1.5rem;
+            top: -20px;
+            right: -35px;
+            transform: rotate(15deg);
+        }
+
+        .hero-texto p {
+            font-size: 1.1rem;
+            color: #4a5d7e;
+            max-width: 500px;
+            margin-bottom: 2rem;
+        }
+
+        .hero-btns {
+            display: flex;
+            gap: 1rem;
+            flex-wrap: wrap;
         }
 
         .btn {
-            display: inline-block;
-            background: #0d5c46;
-            color: white;
-            text-decoration: none;
-            padding: 0.7rem 1.5rem;
-            border-radius: 30px;
-            font-weight: 600;
-            margin-top: 1rem;
-            transition: background 0.3s, transform 0.2s;
+            padding: 0.9rem 2rem;
+            border-radius: 50px;
             border: none;
+            font-weight: 700;
             cursor: pointer;
+            font-size: 0.95rem;
+            text-decoration: none;
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            transition: all 0.25s;
+            font-family: inherit;
         }
 
-        .btn:hover {
-            background: #14a37f;
-            transform: scale(1.02);
+        .btn-azul {
+            background: #2a7de1;
+            color: white;
+            box-shadow: 0 6px 20px rgba(42, 125, 225, 0.4);
         }
 
-        /* Rodapé */
-        footer {
-            background: #0a4735;
-            color: #c9ecdc;
+        .btn-azul:hover {
+            background: #1a5fb8;
+            transform: translateY(-3px);
+            box-shadow: 0 10px 25px rgba(42, 125, 225, 0.5);
+        }
+
+        .btn-contorno {
+            background: white;
+            color: #2a7de1;
+            border: 2px solid #2a7de1;
+        }
+
+        .btn-contorno:hover {
+            background: #2a7de1;
+            color: white;
+        }
+
+        /* Coelho mascote gigante */
+        .hero-visual {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            position: relative;
+        }
+
+        .coelho-mascote {
+            position: relative;
+            animation: pularCoelho 3s ease-in-out infinite;
+        }
+
+        @keyframes pularCoelho {
+            0%, 100% { transform: translateY(0); }
+            50% { transform: translateY(-15px); }
+        }
+
+        /* Corpo do coelho */
+        .coelho-corpo {
+            width: 200px;
+            height: 220px;
+            background: linear-gradient(180deg, #ffffff 0%, #dbeafe 100%);
+            border-radius: 50% 50% 45% 45%;
+            position: relative;
+            box-shadow: 0 20px 50px rgba(42, 125, 225, 0.25);
+            border: 4px solid #b8d4f5;
+        }
+
+        /* Orelhas */
+        .coelho-corpo::before,
+        .coelho-corpo::after {
+            content: '';
+            position: absolute;
+            top: -90px;
+            width: 45px;
+            height: 110px;
+            background: linear-gradient(180deg, #ffffff 0%, #dbeafe 100%);
+            border-radius: 50% 50% 20% 20%;
+            border: 4px solid #b8d4f5;
+        }
+
+        .coelho-corpo::before {
+            left: 25px;
+            transform: rotate(-15deg);
+        }
+
+        .coelho-corpo::after {
+            right: 25px;
+            transform: rotate(15deg);
+        }
+
+        /* Olhos */
+        .coelho-olhos {
+            position: absolute;
+            top: 70px;
+            left: 50%;
+            transform: translateX(-50%);
+            display: flex;
+            gap: 45px;
+        }
+
+        .coelho-olhos span {
+            width: 18px;
+            height: 22px;
+            background: #1a2b4a;
+            border-radius: 50%;
+            position: relative;
+        }
+
+        .coelho-olhos span::after {
+            content: '';
+            position: absolute;
+            top: 3px;
+            left: 4px;
+            width: 6px;
+            height: 6px;
+            background: white;
+            border-radius: 50%;
+        }
+
+        /* Bochechas rosadas */
+        .coelho-bochecha {
+            position: absolute;
+            top: 110px;
+            left: 50%;
+            transform: translateX(-50%);
+            display: flex;
+            gap: 70px;
+        }
+
+        .coelho-bochecha span {
+            width: 20px;
+            height: 12px;
+            background: #ffb8c6;
+            border-radius: 50%;
+            opacity: 0.7;
+        }
+
+        /* Nariz */
+        .coelho-nariz {
+            position: absolute;
+            top: 100px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 14px;
+            height: 10px;
+            background: #ff9db5;
+            border-radius: 50% 50% 40% 40%;
+        }
+
+        /* Boca */
+        .coelho-boca {
+            position: absolute;
+            top: 118px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 24px;
+            height: 12px;
+            border-bottom: 3px solid #1a2b4a;
+            border-radius: 0 0 50% 50%;
+        }
+
+        /* Bigodes */
+        .coelho-bigode {
+            position: absolute;
+            top: 105px;
+            width: 40px;
+            height: 2px;
+            background: #b8d4f5;
+        }
+
+        .coelho-bigode.esq-1 { left: 10px; transform: rotate(-10deg); }
+        .coelho-bigode.esq-2 { left: 10px; top: 115px; transform: rotate(5deg); }
+        .coelho-bigode.dir-1 { right: 10px; transform: rotate(10deg); }
+        .coelho-bigode.dir-2 { right: 10px; top: 115px; transform: rotate(-5deg); }
+
+        /* Cenoura decorativa */
+        .cenoura {
+            position: absolute;
+            bottom: 20px;
+            right: -30px;
+            font-size: 3rem;
+            transform: rotate(-25deg);
+            animation: balancar 2s ease-in-out infinite;
+        }
+
+        @keyframes balancar {
+            0%, 100% { transform: rotate(-25deg); }
+            50% { transform: rotate(-15deg); }
+        }
+
+        /* ===== SEÇÃO CURSOS ===== */
+        .secao {
+            max-width: 1150px;
+            margin: 0 auto;
+            padding: 5rem 2rem;
+        }
+
+        .secao-titulo {
             text-align: center;
-            padding: 2rem 1rem;
-            margin-top: 2rem;
+            margin-bottom: 3rem;
+        }
+
+        .secao-titulo .mini-tag {
+            display: inline-block;
+            background: #dbeafe;
+            color: #1a5fb8;
+            padding: 0.35rem 1rem;
+            border-radius: 50px;
+            font-size: 0.78rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            margin-bottom: 1rem;
+        }
+
+        .secao-titulo h2 {
+            font-size: 2.3rem;
+            color: #1a2b4a;
+            margin-bottom: 0.8rem;
+            font-weight: 800;
+        }
+
+        .secao-titulo h2::after {
+            content: '🐰';
+            margin-left: 0.5rem;
+            font-size: 1.8rem;
+            display: inline-block;
+            animation: pularCoelho 2s ease-in-out infinite;
+        }
+
+        .secao-titulo p {
+            color: #4a5d7e;
+            max-width: 600px;
+            margin: 0 auto;
+            font-size: 1rem;
+        }
+
+        /* Grid de cursos - com orelhinhas nos cards */
+        .grid-cursos {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+            gap: 2rem;
+            margin-top: 3rem;
+        }
+
+        .card-curso {
+            background: white;
+            border-radius: 24px;
+            padding: 2.2rem 1.8rem;
+            box-shadow: 0 8px 25px rgba(65, 130, 220, 0.1);
+            transition: all 0.3s;
+            position: relative;
+            margin-top: 20px;
+            border: 2px solid transparent;
+        }
+
+        /* Orelhinhas no topo dos cards */
+        .card-curso::before,
+        .card-curso::after {
+            content: '';
+            position: absolute;
+            top: -22px;
+            width: 30px;
+            height: 40px;
+            background: white;
+            border-radius: 50% 50% 20% 20%;
+            border: 2px solid #dbeafe;
+            border-bottom: none;
+            transition: all 0.3s;
+        }
+
+        .card-curso::before {
+            left: 40px;
+            transform: rotate(-12deg);
+        }
+
+        .card-curso::after {
+            right: 40px;
+            transform: rotate(12deg);
+        }
+
+        .card-curso:hover {
+            transform: translateY(-8px);
+            border-color: #6ca8f0;
+            box-shadow: 0 20px 40px rgba(42, 125, 225, 0.2);
+        }
+
+        .card-curso:hover::before,
+        .card-curso:hover::after {
+            background: #dbeafe;
+            border-color: #6ca8f0;
+        }
+
+        .card-curso .icone {
+            width: 60px;
+            height: 60px;
+            background: linear-gradient(135deg, #dbeafe, #a9cdf5);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.7rem;
+            margin-bottom: 1.2rem;
+            transition: transform 0.3s;
+        }
+
+        .card-curso:hover .icone {
+            transform: rotate(-10deg) scale(1.1);
+        }
+
+        .card-curso h3 {
+            font-size: 1.15rem;
+            margin-bottom: 0.6rem;
+            color: #1a2b4a;
+            font-weight: 700;
+        }
+
+        .card-curso p {
             font-size: 0.9rem;
+            color: #4a5d7e;
+            margin-bottom: 1.2rem;
+            line-height: 1.5;
+        }
+
+        .card-curso .rodape {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .card-curso .nivel {
+            font-size: 0.72rem;
+            font-weight: 700;
+            padding: 0.3rem 0.8rem;
+            border-radius: 50px;
+            text-transform: uppercase;
+            background: #dbeafe;
+            color: #1a5fb8;
+        }
+
+        .card-curso .seta {
+            color: #6ca8f0;
+            font-size: 1.3rem;
+            transition: transform 0.3s;
+        }
+
+        .card-curso:hover .seta {
+            transform: translateX(6px);
+        }
+
+        /* ===== SEÇÃO PYTHON ===== */
+        .python-area {
+            background: linear-gradient(135deg, #1a4d8f 0%, #2a7de1 100%);
+            border-radius: 30px;
+            padding: 4rem 3rem;
+            margin: 4rem auto;
+            max-width: 1150px;
+            color: white;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 3rem;
+            align-items: center;
+            position: relative;
+            overflow: hidden;
+            box-shadow: 0 25px 60px rgba(26, 77, 143, 0.3);
+        }
+
+        /* Coelhinhos decorativos flutuando */
+        .python-area .coelhinho-deco {
+            position: absolute;
+            font-size: 2rem;
+            opacity: 0.15;
+            animation: flutuarDeco 6s ease-in-out infinite;
+        }
+
+        .python-area .coelhinho-deco:nth-child(1) { top: 20px; right: 40px; animation-delay: 0s; }
+        .python-area .coelhinho-deco:nth-child(2) { bottom: 30px; left: 30px; animation-delay: 2s; }
+        .python-area .coelhinho-deco:nth-child(3) { top: 50%; right: 20px; animation-delay: 4s; }
+
+        @keyframes flutuarDeco {
+            0%, 100% { transform: translateY(0) rotate(-5deg); }
+            50% { transform: translateY(-15px) rotate(5deg); }
+        }
+
+        .python-area h2 {
+            font-size: 2.3rem;
+            margin-bottom: 1rem;
+            line-height: 1.15;
+            position: relative;
+            z-index: 1;
+        }
+
+        .python-area h2 span {
+            color: #a9d5ff;
+        }
+
+        .python-area > div > p {
+            color: #dbeafe;
+            margin-bottom: 1.8rem;
+            font-size: 1.02rem;
+            position: relative;
+            z-index: 1;
+        }
+
+        .topicos {
+            list-style: none;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 0.9rem;
+            margin-bottom: 2rem;
+            position: relative;
+            z-index: 1;
+        }
+
+        .topicos li {
+            display: flex;
+            align-items: center;
+            gap: 0.7rem;
+            color: #eef6ff;
+            font-size: 0.92rem;
+        }
+
+        .topicos li::before {
+            content: '🥕';
+            font-size: 1rem;
+            flex-shrink: 0;
+        }
+
+        .python-visual {
+            position: relative;
+            z-index: 1;
+        }
+
+        /* Terminal de código */
+        .terminal {
+            background: #0f2847;
+            border-radius: 16px;
+            padding: 1.5rem;
+            font-family: 'Courier New', monospace;
+            font-size: 0.88rem;
+            line-height: 1.9;
+            box-shadow: 0 20px 50px rgba(0, 0, 0, 0.4);
+            border: 1px solid #2a5a9e;
+        }
+
+        .terminal .topo {
+            display: flex;
+            gap: 0.4rem;
+            margin-bottom: 1rem;
+            padding-bottom: 0.8rem;
+            border-bottom: 1px solid #2a5a9e;
+        }
+
+        .terminal .topo span {
+            width: 12px;
+            height: 12px;
+            border-radius: 50%;
+            background: #6ca8f0;
+            opacity: 0.6;
+        }
+
+        .terminal .linha { color: #d4e4f7; }
+        .terminal .prompt { color: #a9d5ff; }
+        .terminal .saida { color: #7fe0b8; }
+        .terminal .c-key { color: #ff8fb1; }
+        .terminal .c-str { color: #a9d5ff; }
+        .terminal .c-fn { color: #ffd93d; }
+
+        /* ===== SOBRE ===== */
+        .sobre-bloco {
+            background: white;
+            border-radius: 30px;
+            padding: 3.5rem 2.5rem;
+            text-align: center;
+            max-width: 900px;
+            margin: 0 auto;
+            box-shadow: 0 15px 40px rgba(65, 130, 220, 0.1);
+            border: 3px dashed #a9cdf5;
+            position: relative;
+        }
+
+        .sobre-bloco::before {
+            content: '🐰';
+            position: absolute;
+            top: -30px;
+            left: 50%;
+            transform: translateX(-50%);
+            font-size: 3rem;
+            background: white;
+            padding: 0 15px;
+            border-radius: 50%;
+        }
+
+        .sobre-bloco h2 {
+            font-size: 2rem;
+            margin-bottom: 1rem;
+            color: #1a2b4a;
+            margin-top: 0.5rem;
+        }
+
+        .sobre-bloco p {
+            color: #4a5d7e;
+            max-width: 700px;
+            margin: 0 auto 0.8rem;
+            font-size: 1.02rem;
+        }
+
+        .sobre-bloco a {
+            color: #2a7de1;
+            font-weight: 700;
+            text-decoration: none;
+        }
+
+        .sobre-bloco a:hover {
+            text-decoration: underline;
+        }
+
+        /* ===== CTA FINAL ===== */
+        .cta-final {
+            background: linear-gradient(135deg, #dbeafe, #a9cdf5);
+            text-align: center;
+            padding: 4rem 2rem;
+            margin-top: 4rem;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .cta-final::before,
+        .cta-final::after {
+            content: '🐰';
+            position: absolute;
+            font-size: 4rem;
+            opacity: 0.4;
+        }
+
+        .cta-final::before { top: 30px; left: 10%; transform: rotate(-15deg); }
+        .cta-final::after { bottom: 30px; right: 10%; transform: rotate(15deg); }
+
+        .cta-final h2 {
+            font-size: 2.2rem;
+            color: #1a2b4a;
+            margin-bottom: 1rem;
+            position: relative;
+        }
+
+        .cta-final p {
+            color: #35507a;
+            margin-bottom: 1.8rem;
+            font-size: 1.05rem;
+            position: relative;
+        }
+
+        .cta-final .btn-azul {
+            position: relative;
+        }
+
+        /* ===== RODAPÉ ===== */
+        footer {
+            background: #1a4d8f;
+            color: #cfe3ff;
+            text-align: center;
+            padding: 2.5rem 1.5rem;
+            font-size: 0.88rem;
         }
 
         footer a {
-            color: #7fe0bf;
+            color: #a9d5ff;
             text-decoration: none;
         }
 
@@ -213,163 +803,182 @@
             text-decoration: underline;
         }
 
-        /* Interatividade JS */
-        .mensagem-js {
-            margin-top: 1rem;
-            padding: 0.8rem;
-            background: #d4f5e8;
-            border-radius: 8px;
-            color: #0a4735;
-            font-weight: 500;
-            display: none;
-            border-left: 4px solid #14a37f;
+        footer .coelhinhos {
+            font-size: 1.5rem;
+            margin-bottom: 1rem;
+            letter-spacing: 0.5rem;
         }
 
-        .mensagem-js.visivel {
-            display: block;
-            animation: fadeIn 0.4s ease;
+        /* ===== RESPONSIVO ===== */
+        @media (max-width: 900px) {
+            .hero-conteudo {
+                grid-template-columns: 1fr;
+                text-align: center;
+            }
+            .hero-texto p {
+                margin-left: auto;
+                margin-right: auto;
+            }
+            .hero-btns { justify-content: center; }
+            .hero-texto h1 { font-size: 2.4rem; }
+            .hero-texto h1 .azul::after { display: none; }
+            .python-area {
+                grid-template-columns: 1fr;
+                padding: 2.5rem 1.5rem;
+            }
+            .topicos { grid-template-columns: 1fr; }
+            header { padding: 1rem 1.5rem; }
+            .secao { padding: 3rem 1.5rem; }
+            .secao-titulo h2 { font-size: 1.7rem; }
+            .coelho-corpo { width: 160px; height: 180px; }
+            .coelho-corpo::before,
+            .coelho-corpo::after { height: 90px; top: -70px; }
         }
 
-        @keyframes fadeIn {
-            from { opacity: 0; transform: translateY(-5px); }
-            to { opacity: 1; transform: translateY(0); }
-        }
-
-        /* Responsivo */
-        @media (max-width: 600px) {
-            header h1 { font-size: 1.8rem; }
-            .container { padding: 0 1rem; }
-            section { padding: 1.5rem; }
-            .python-icone { font-size: 3.5rem; }
+        @media (max-width: 500px) {
+            .hero-texto h1 { font-size: 1.9rem; }
+            .python-area h2 { font-size: 1.7rem; }
+            .cta-final h2 { font-size: 1.5rem; }
+            .coelho-corpo { width: 140px; height: 160px; }
         }
     </style>
 </head>
 <body>
 
+    <!-- HEADER -->
     <header>
-        <h1>🌿 Escola Virtual</h1>
-        <p>Cursos gratuitos de Programação e Python Básico</p>
+        <div class="logo">
+            <div class="coelho-logo">
+                <div class="olhos"><span></span><span></span></div>
+            </div>
+            Coelho<span style="color:#2a7de1;">Code</span>
+        </div>
+        <nav>
+            <a href="#cursos">Cursos</a>
+            <a href="#python">Python</a>
+            <a href="#sobre">Sobre</a>
+        </nav>
     </header>
 
-    <nav>
-        <a href="#programacao">Programação</a>
-        <a href="#python">Python Básico</a>
-        <a href="#sobre">Sobre</a>
-    </nav>
+    <!-- HERO -->
+    <section class="hero">
+        <div class="nuvem nuvem-1"></div>
+        <div class="nuvem nuvem-2"></div>
 
-    <div class="container">
-
-        <section id="programacao">
-            <h2>💻 Cursos de Programação</h2>
-            <p>Baseado na área de interesse <strong>Programação</strong> da <a href="https://www.ev.org.br/areas-de-interesse/programacao" target="_blank" rel="noopener">Escola Virtual</a> da Fundação Bradesco. Todos os cursos são gratuitos e com certificado digital.</p>
-
-            <div class="cursos-grid">
-                <div class="curso-card">
-                    <h4>Lógica de Programação</h4>
-                    <p>Aprenda os fundamentos da lógica para desenvolver algoritmos e resolver problemas computacionais.</p>
-                    <span class="badge">Iniciante</span>
-                </div>
-                <div class="curso-card">
-                    <h4>Python Básico</h4>
-                    <p>Introdução à linguagem Python: variáveis, tipos de dados, estruturas de controle e funções.</p>
-                    <span class="badge">Iniciante</span>
-                </div>
-                <div class="curso-card">
-                    <h4>Java Básico</h4>
-                    <p>Primeiros passos com Java: sintaxe, orientação a objetos e criação de aplicações simples.</p>
-                    <span class="badge">Iniciante</span>
-                </div>
-                <div class="curso-card">
-                    <h4>HTML e CSS</h4>
-                    <p>Desenvolvimento web front-end: estrutura com HTML5 e estilização com CSS3.</p>
-                    <span class="badge">Iniciante</span>
-                </div>
-                <div class="curso-card">
-                    <h4>JavaScript</h4>
-                    <p>Programação client-side para tornar páginas web interativas e dinâmicas.</p>
-                    <span class="badge">Intermediário</span>
-                </div>
-                <div class="curso-card">
-                    <h4>Banco de Dados</h4>
-                    <p>Modelagem e consultas SQL para armazenamento e recuperação de informações.</p>
-                    <span class="badge">Intermediário</span>
+        <div class="hero-conteudo">
+            <div class="hero-texto">
+                <span class="tag">🐰 Aprender é uma aventura</span>
+                <h1>Salte para o mundo da <span class="azul">programação</span></h1>
+                <p>Trilha gratuita de cursos baseada na Escola Virtual da Fundação Bradesco. Aprenda no seu ritmo, com o carinho de um coelhinho.</p>
+                <div class="hero-btns">
+                    <a href="#cursos" class="btn btn-azul">🥕 Começar agora</a>
+                    <a href="#python" class="btn btn-contorno">🐍 Python Básico</a>
                 </div>
             </div>
 
-            <button class="btn" id="btnMostrarCursos">Mostrar todos os cursos</button>
-            <div class="mensagem-js" id="mensagemCursos">
-                ✅ A Escola Virtual oferece diversos outros cursos na área de Tecnologia. Acesse o site oficial para ver o catálogo completo!
-            </div>
-        </section>
-
-        <section id="python" class="python-destaque">
-            <h2>🐍 Python Básico</h2>
-            <div class="python-info">
-                <div class="python-texto">
-                    <p><strong>Python</strong> é uma linguagem de programação versátil, fácil de aprender e amplamente utilizada no mercado. Com ela você pode criar desde scripts simples até aplicações web, análise de dados e inteligência artificial.</p>
-                    <h3>O que você vai aprender:</h3>
-                    <ul style="margin-left: 1.5rem; margin-top: 0.5rem;">
-                        <li>Variáveis e tipos de dados</li>
-                        <li>Operadores e expressões</li>
-                        <li>Estruturas condicionais (if/else)</li>
-                        <li>Laços de repetição (for/while)</li>
-                        <li>Funções e módulos</li>
-                        <li>Listas, tuplas e dicionários</li>
-                    </ul>
-                    <button class="btn" id="btnPython">Quero saber mais sobre Python</button>
-                    <div class="mensagem-js" id="mensagemPython">
-                        🐍 Python é uma excelente escolha para iniciantes! Na Escola Virtual você encontra o curso <strong>Python Básico</strong> com certificado gratuito.
+            <div class="hero-visual">
+                <div class="coelho-mascote">
+                    <div class="coelho-corpo">
+                        <div class="coelho-olhos">
+                            <span></span>
+                            <span></span>
+                        </div>
+                        <div class="coelho-bochecha">
+                            <span></span>
+                            <span></span>
+                        </div>
+                        <div class="coelho-nariz"></div>
+                        <div class="coelho-boca"></div>
+                        <div class="coelho-bigode esq-1"></div>
+                        <div class="coelho-bigode esq-2"></div>
+                        <div class="coelho-bigode dir-1"></div>
+                        <div class="coelho-bigode dir-2"></div>
                     </div>
+                    <div class="cenoura">🥕</div>
                 </div>
-                <div class="python-icone">🐍</div>
             </div>
-        </section>
+        </div>
+    </section>
 
-        <section id="sobre">
-            <h2>ℹ️ Sobre a Escola Virtual</h2>
-            <p>A <strong>Escola Virtual</strong> é uma plataforma de educação online gratuita criada pela <strong>Fundação Bradesco</strong>. Oferece cursos livres de Formação Inicial e Continuada (FIC) nas áreas de Administração, Contabilidade, Desenvolvimento Pessoal, Educação e Tecnologia.</p>
-            <p style="margin-top: 1rem;">Os cursos são autoinstrucionais, com certificado digital válido por 2 anos. Para se inscrever, basta criar uma conta no site oficial: <a href="https://www.ev.org.br" target="_blank" rel="noopener">www.ev.org.br</a>.</p>
-        </section>
+    <!-- CURSOS -->
+    <section class="secao" id="cursos">
+        <div class="secao-titulo">
+            <span class="mini-tag">Trilha completa</span>
+            <h2>Nossos cursos de programação</h2>
+            <p>Uma trilha completa baseada na área de Programação da Escola Virtual, com cursos gratuitos e certificado digital.</p>
+        </div>
 
-    </div>
+        <div class="grid-cursos" id="gridCursos">
+            <!-- Preenchido via JS -->
+        </div>
+    </section>
 
+    <!-- PYTHON -->
+    <section class="python-area" id="python">
+        <div class="coelhinho-deco">🐰</div>
+        <div class="coelhinho-deco">🐇</div>
+        <div class="coelhinho-deco">🐰</div>
+
+        <div>
+            <h2>Python <span>Básico</span> do zero</h2>
+            <p>Aprenda a linguagem mais popular do mundo com um curso gratuito, prático e com certificado reconhecido pela Fundação Bradesco.</p>
+
+            <ul class="topicos">
+                <li>Variáveis e tipos</li>
+                <li>Condicionais</li>
+                <li>Laços de repetição</li>
+                <li>Funções</li>
+                <li>Listas e dicionários</li>
+                <li>Módulos e bibliotecas</li>
+            </ul>
+
+            <button class="btn btn-azul" id="btnPython" style="background:white; color:#1a4d8f;">🐇 Quero me inscrever</button>
+        </div>
+
+        <div class="python-visual">
+            <div class="terminal">
+                <div class="topo">
+                    <span></span><span></span><span></span>
+                </div>
+                <div class="linha"><span class="prompt">>>> </span>nome = <span class="c-str">"coelhinho"</span></div>
+                <div class="linha"><span class="prompt">>>> </span><span class="c-key">print</span>(<span class="c-str">f"Olá, {nome}!"</span>)</div>
+                <div class="linha saida">Olá, coelhinho!</div>
+                <div class="linha"><span class="prompt">>>> </span><span class="c-key">for</span> i <span class="c-key">in</span> <span class="c-fn">range</span>(3):</div>
+                <div class="linha">&nbsp;&nbsp;&nbsp;&nbsp;<span class="c-key">print</span>(<span class="c-str">"🐰 Saltei!"</span>)</div>
+                <div class="linha saida">🐰 Saltei!</div>
+                <div class="linha saida">🐰 Saltei!</div>
+                <div class="linha saida">🐰 Saltei!</div>
+                <div class="linha"><span class="prompt">>>> </span># Você conseguiu! 🥕</div>
+            </div>
+        </div>
+    </section>
+
+    <!-- SOBRE -->
+    <section class="secao" id="sobre">
+        <div class="sobre-bloco">
+            <h2>Sobre a Escola Virtual</h2>
+            <p>A <strong>Escola Virtual</strong> é uma plataforma de educação online gratuita criada pela <strong>Fundação Bradesco</strong>. Oferece cursos livres (FIC) nas áreas de Administração, Contabilidade, Desenvolvimento Pessoal, Educação e Tecnologia.</p>
+            <p>Os cursos são autoinstrucionais, com certificado digital válido por 2 anos. Para se inscrever, basta criar uma conta em <a href="https://www.ev.org.br" target="_blank" rel="noopener">www.ev.org.br</a>.</p>
+        </div>
+    </section>
+
+    <!-- CTA FINAL -->
+    <section class="cta-final">
+        <h2>Pronto para saltar na programação? 🐰</h2>
+        <p>Comece hoje mesmo com um curso gratuito e conquiste seu certificado digital.</p>
+        <a href="https://www.ev.org.br/areas-de-interesse/programacao" target="_blank" rel="noopener" class="btn btn-azul">Ir para a Escola Virtual →</a>
+    </section>
+
+    <!-- RODAPÉ -->
     <footer>
-        <p>Site demonstrativo criado para fins educacionais. Todos os direitos sobre os cursos pertencem à <a href="https://www.ev.org.br" target="_blank" rel="noopener">Escola Virtual - Fundação Bradesco</a>.</p>
-        <p style="margin-top: 0.5rem;">© 2026 - Tema Verde Esmeralda 🌿</p>
+        <div class="coelhinhos">🐰 🐇 🐰 🐇 🐰</div>
+        <p>Site demonstrativo educacional • Dados baseados na <a href="https://www.ev.org.br/areas-de-interesse/programacao" target="_blank" rel="noopener">Escola Virtual</a> da Fundação Bradesco</p>
+        <p style="margin-top: 0.5rem;">© 2026 CoelhoCode 🐰 — Tema Azul</p>
     </footer>
 
     <script>
-        const btnMostrarCursos = document.getElementById('btnMostrarCursos');
-        const mensagemCursos = document.getElementById('mensagemCursos');
-
-        btnMostrarCursos.addEventListener('click', function() {
-            mensagemCursos.classList.toggle('visivel');
-            btnMostrarCursos.textContent = mensagemCursos.classList.contains('visivel')
-                ? 'Ocultar mensagem' : 'Mostrar todos os cursos';
-        });
-
-        const btnPython = document.getElementById('btnPython');
-        const mensagemPython = document.getElementById('mensagemPython');
-
-        btnPython.addEventListener('click', function() {
-            mensagemPython.classList.toggle('visivel');
-            btnPython.textContent = mensagemPython.classList.contains('visivel')
-                ? 'Ocultar informação' : 'Quero saber mais sobre Python';
-        });
-
-        document.querySelectorAll('nav a').forEach(anchor => {
-            anchor.addEventListener('click', function(e) {
-                e.preventDefault();
-                const targetId = this.getAttribute('href');
-                const targetElement = document.querySelector(targetId);
-                if (targetElement) {
-                    targetElement.scrollIntoView({ behavior: 'smooth', block: 'start' });
-                }
-            });
-        });
-
-        console.log('🌿 Site carregado no tema Verde Esmeralda!');
-    </script>
-
-</body>
-</html>
+        // Dados dos cursos
+        const cursos = [
+            { icone: '🧠', titulo: 'Lógica de Programação', desc: 'Fundamentos de algoritmos e raciocínio computacional para iniciantes.', nivel: 'Iniciante' },
+            { icone: '🐍', titulo: 'Python Básico', desc: 'Introdução prática à linguagem Python, a mais popular do mundo.', nivel: 'Iniciante' },
+            { icone: '☕', titulo: 'Java Básico', desc: 'Primeiros passos
